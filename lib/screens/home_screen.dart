@@ -1,6 +1,5 @@
 import 'package:account/provider/transaction_provider.dart';
 import 'package:account/screens/edit_screen.dart';
-import 'package:account/screens/edit_screen.dart.bak';
 import 'package:account/screens/form_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
-          title: const Text("แอพบัญชี"),
+          centerTitle: true,
+          title: const Text(
+            'นักปรัชญาในประวัติศาสร์',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
           actions: [
             IconButton(
               icon: const Icon(Icons.exit_to_app),
@@ -42,17 +49,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   var statement = provider.transactions[index];
                   return Card(
-                    elevation: 5,
+                    elevation: 10,
                     margin:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                        const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                     child: ListTile(
-                      title: Text(statement.title),
-                      subtitle: Text(DateFormat('dd MMM yyyy hh:mm:ss')
-                          .format(statement.date)),
-                      leading: CircleAvatar(
-                        radius: 30,
+                      title: Text(statement.title1),
+                      subtitle: Text('${provider.transactions[index].title2} | ${provider.transactions[index].title3}'),
+                      leading: const CircleAvatar(
+                        radius: 40,
                         child: FittedBox(
-                          child: Text('${statement.amount}'),
+                          child: Icon(Icons.gamepad),
                         ),
                       ),
                       trailing: IconButton(

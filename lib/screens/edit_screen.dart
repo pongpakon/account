@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class EditScreen extends StatefulWidget {
-
   Transactions statement;
 
   EditScreen({super.key, required this.statement});
@@ -18,17 +17,29 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   final formKey = GlobalKey<FormState>();
 
-  final titleController = TextEditingController();
+  final titleController1 = TextEditingController();
+  final titleController2 = TextEditingController();
+  final titleController3 = TextEditingController();
 
   final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    titleController.text = widget.statement.title;
+    titleController1.text = widget.statement.title1;
+    titleController2.text = widget.statement.title2;
+    titleController3.text = widget.statement.title3;
     amountController.text = widget.statement.amount.toString();
     return Scaffold(
         appBar: AppBar(
-          title: const Text('แบบฟอร์มแก้ไขข้อมูล'),
+          backgroundColor: const Color.fromARGB(51, 47, 0, 255),
+          centerTitle: true,
+          title: const Text(
+            'แก้ไขข้อมูล',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         body: Form(
             key: formKey,
@@ -36,10 +47,10 @@ class _EditScreenState extends State<EditScreen> {
               children: [
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'ชื่อรายการ',
+                    labelText: 'ชื่อนักปรัชญา',
                   ),
                   autofocus: false,
-                  controller: titleController,
+                  controller: titleController1,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -48,7 +59,31 @@ class _EditScreenState extends State<EditScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'จำนวนเงิน',
+                    labelText: 'แนวเกมส์',
+                  ),
+                  autofocus: false,
+                  controller: titleController2,
+                  validator: (String? str) {
+                    if (str!.isEmpty) {
+                      return 'กรุณากรอกข้อมูล';
+                    }
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'เนื้อเรื่องย่อของเกมส์',
+                  ),
+                  autofocus: false,
+                  controller: titleController3,
+                  validator: (String? str) {
+                    if (str!.isEmpty) {
+                      return 'กรุณากรอกข้อมูล';
+                    }
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Rating',
                   ),
                   keyboardType: TextInputType.number,
                   controller: amountController,
@@ -63,32 +98,39 @@ class _EditScreenState extends State<EditScreen> {
                     }
                   },
                 ),
-                TextButton(
-                    child: const Text('แก้ไขข้อมูล'),
+                FilledButton(
+                    style:
+                        FilledButton.styleFrom(backgroundColor: Colors.green),
+                    child: const Text(
+                      'แก้ไขข้อมูล',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     onPressed: () {
-                          if (formKey.currentState!.validate())
-                            {
-                              // create transaction data object
-                              var statement = Transactions(
-                                  keyID: widget.statement.keyID,
-                                  title: titleController.text,
-                                  amount: double.parse(amountController.text),
-                                  date: DateTime.now()
-                                  );
-                            
-                              // add transaction data object to provider
-                              var provider = Provider.of<TransactionProvider>(context, listen: false);
-                              
-                              provider.updateTransaction(statement);
+                      if (formKey.currentState!.validate()) {
+                        // create transaction data object
+                        var statement = Transactions(
+                            keyID: widget.statement.keyID,
+                            title1: titleController1.text,
+                            title2: titleController2.text,
+                            title3: titleController3.text,
+                            amount: double.parse(amountController.text),
+                            date: DateTime.now());
 
-                              Navigator.push(context, MaterialPageRoute(
+                        // add transaction data object to provider
+                        var provider = Provider.of<TransactionProvider>(context,
+                            listen: false);
+
+                        provider.updateTransaction(statement);
+
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
                                 fullscreenDialog: true,
-                                builder: (context){
+                                builder: (context) {
                                   return MyHomePage();
-                                }
-                              ));
-                            }
-                        })
+                                }));
+                      }
+                    })
               ],
             )));
   }
