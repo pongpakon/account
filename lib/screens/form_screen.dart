@@ -102,7 +102,7 @@ class _FormScreenState extends State<FormScreen> {
                                   title2: time.text,
                                   title3: importantwork.text,
                                   title4: heritage.text,
-                                  amount: double.parse(rating.text),
+                                  amount: double.parse(amountController.text),
                                   date: DateTime.now()
                                   );
                               
