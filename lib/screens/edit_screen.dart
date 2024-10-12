@@ -17,18 +17,18 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   final formKey = GlobalKey<FormState>();
 
-  final gamename = TextEditingController();
-  final genre = TextEditingController();
-  final review = TextEditingController();
-
-  final rating = TextEditingController();
+  final name = TextEditingController();
+  final time = TextEditingController();
+  final importantwork = TextEditingController();
+  final heritage = TextEditingController();
+ 
 
   @override
   Widget build(BuildContext context) {
-    gamename.text = widget.statement.title1;
-    genre.text = widget.statement.title2;
-    review.text = widget.statement.title3;
-    rating.text = widget.statement.amount.toString();
+    name.text = widget.statement.title1;
+    time.text = widget.statement.title2;
+    importantwork.text = widget.statement.title3;
+    heritage.text = widget.statement.amount.toString();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(51, 47, 0, 255),
@@ -47,10 +47,10 @@ class _EditScreenState extends State<EditScreen> {
               children: [
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'ชื่อเกมส์',
+                    labelText: 'ชื่อนักปรัชญา',
                   ),
                   autofocus: false,
-                  controller: gamename,
+                  controller: name,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -59,10 +59,10 @@ class _EditScreenState extends State<EditScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'แนวเกมส์',
+                    labelText: 'ยุคสมัย',
                   ),
                   autofocus: false,
-                  controller: genre,
+                  controller: time,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -71,30 +71,25 @@ class _EditScreenState extends State<EditScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'review',
+                    labelText: 'ผลงานสำคัญ',
                   ),
                   autofocus: false,
-                  controller: review,
+                  controller: importantwork,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
                     }
                   },
                 ),
-                TextFormField(
+                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'Rating',
+                    labelText: 'อิทธิผลและมรดกทางความคิด',
                   ),
-                  keyboardType: TextInputType.number,
-                  controller: rating,
-                  validator: (String? input) {
-                    try {
-                      double amount = double.parse(input!);
-                      if (amount < 0) {
-                        return 'กรุณากรอกข้อมูลมากกว่า 0';
-                      }
-                    } catch (e) {
-                      return 'กรุณากรอกข้อมูลเป็นตัวเลข';
+                  autofocus: false,
+                  controller: heritage,
+                  validator: (String? str) {
+                    if (str!.isEmpty) {
+                      return 'กรุณากรอกข้อมูล';
                     }
                   },
                 ),
