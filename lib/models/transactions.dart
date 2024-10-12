@@ -4,16 +4,14 @@ class Transactions {
   final String title2;
   final String title3;
   final String title4;
-  final double amount;
-  final DateTime date;
-
+  final String imagePath;
+  
   Transactions({
     this.keyID,
     required this.title1,
     required this.title2,
     required this.title3,
     required this.title4,
-    required this.amount,
-    required this.date,
+    required this.imagePath,
   });
 }
