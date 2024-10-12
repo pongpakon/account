@@ -15,10 +15,10 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
   final formKey = GlobalKey<FormState>();
-  final gamename = TextEditingController();
-  final genre = TextEditingController();
-  final review = TextEditingController();
-  final rating = TextEditingController();
+  final name = TextEditingController();
+  final time = TextEditingController();
+  final  = TextEditingController();
+  final heritage = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
