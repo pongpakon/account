@@ -3,8 +3,8 @@ import 'package:account/screens/edit_screen.dart';
 import 'package:account/screens/form_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:account/screens/Detail.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Theme.of(context).colorScheme.primary,
           centerTitle: true,
           title: const Text(
-            'นักปรัชญาในประวัติศาสร์',
+            'Game Recommendations',
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
@@ -50,33 +50,52 @@ class _HomeScreenState extends State<HomeScreen> {
                   var statement = provider.transactions[index];
                   return Card(
                     elevation: 10,
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
                     child: ListTile(
                       title: Text(statement.title1),
-                      subtitle: Text('${provider.transactions[index].title2} | ${provider.transactions[index].title3}'),
+                      subtitle: Text(
+                          '${provider.transactions[index].title2} | ${provider.transactions[index].title3} | ${provider.transactions[index].amount} '),
                       leading: const CircleAvatar(
                         radius: 40,
                         child: FittedBox(
                           child: Icon(Icons.gamepad),
                         ),
                       ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          provider.deleteTransaction(statement.keyID);
-                        },
-                      ),
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) {
-                              return EditScreen(statement: statement);
-                            },
+                            builder: (context) => Detail(
+                              transaction: statement,
+                            ),
                           ),
                         );
                       },
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.edit),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return EditScreen(statement: statement);
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () {
+                              provider.deleteTransaction(statement.keyID);
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
