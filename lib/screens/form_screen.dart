@@ -42,10 +42,10 @@ class _FormScreenState extends State<FormScreen> {
                 TextFormField(
                   
                   decoration: const InputDecoration(
-                    labelText: 'ชื่อเกมส์',
+                    labelText: 'ชื่อนักปรัชญา',
                   ),
                   autofocus: false,
-                  controller: gamename,
+                  controller: name,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -54,10 +54,10 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'แนวเกมส์',
+                    labelText: 'ยุคสมัย',
                   ),
                   autofocus: false,
-                  controller: genre,
+                  controller: time,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -66,10 +66,10 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'review',
+                    labelText: 'ผลงานสำคัญ',
                   ),
                   autofocus: false,
-                  controller: review,
+                  controller: importantwork ,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -78,21 +78,13 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'Rating',
+                    labelText: 'มรดกและอิทธิพลทางความคิด',
                   ),
-                  keyboardType: TextInputType.number,
-                  controller: rating,
-                  validator: (String? input) {
-                    try {
-                      double amount = double.parse(input!);
-                      if (amount > 5 ) {
-                        return 'กรุณากรอกข้อมูลไม่เกินกว่า 5';
-                      }
-                      else if (amount == 0 ) {
-                        return 'กรุณากรอกข้อมูลมากกว่า 0';
-                      }
-                    } catch (e) {
-                      return 'กรุณากรอกข้อมูลเป็นตัวเลข';
+                  autofocus: false,
+                  controller:  ,
+                  validator: (String? str) {
+                    if (str!.isEmpty) {
+                      return 'กรุณากรอกข้อมูล';
                     }
                   },
                 ),
