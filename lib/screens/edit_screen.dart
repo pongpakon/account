@@ -105,9 +105,10 @@ class _EditScreenState extends State<EditScreen> {
                         // create transaction data object
                         var statement = Transactions(
                             keyID: widget.statement.keyID,
-                            title1: gamename.text,
-                            title2: genre.text,
-                            title3: review.text,
+                            title1: name.text,
+                            title2: time.text,
+                            title3: importantwork.text,
+                            title4: heritage.text,
                             amount: double.parse(rating.text),
                             date: DateTime.now());
 
