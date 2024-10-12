@@ -28,6 +28,9 @@ class TransactionDB{
       "title1": statement.title1,
       "title2": statement.title2,
       "title3": statement.title3,
+      "title4": statement.title4,
+      "title5": statement.title5,
+      "title6": statement.title6,
       "amount": statement.amount,
       "date": statement.date.toIso8601String()
     });
@@ -46,6 +49,9 @@ class TransactionDB{
         title1: record['title1'].toString(),
         title2: record['title2'].toString(),
         title3: record['title3'].toString(),
+        title4: record['title4'].toString(),
+        title5: record['title5'].toString(),
+        title6: record['title6'].toString(),
         amount: double.parse(record['amount'].toString()),
         date: DateTime.parse(record['date'].toString())
       ));
@@ -69,6 +75,9 @@ class TransactionDB{
       "title1": statement.title1,
       "title2": statement.title2,
       "title3": statement.title3,
+      "title4": statement.title4,
+      "title5": statement.title5,
+      "title6": statement.title6,
       "amount": statement.amount,
       "date": statement.date.toIso8601String()
     });
