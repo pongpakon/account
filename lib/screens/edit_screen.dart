@@ -83,7 +83,7 @@ class _EditScreenState extends State<EditScreen> {
                 ),
                  TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'อิทธิผลและมรดกทางความคิด',
+                    labelText: 'อิทธิพลและมรดกทางความคิด',
                   ),
                   autofocus: false,
                   controller: heritage,
