@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ListTile(
                       title: Text(statement.title1),
                       subtitle: Text(
-                          '${provider.transactions[index].title2} | ${provider.transactions[index].title3} | ${provider.transactions[index].amount} '),
+                          '${provider.transactions[index].title2} | ${provider.transactions[index].title3} |  ${provider.transactions[index].title3} | ${provider.transactions[index].title4} '),
                       leading: const CircleAvatar(
                         radius: 40,
                         child: FittedBox(
