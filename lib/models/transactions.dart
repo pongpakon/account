@@ -4,8 +4,6 @@ class Transactions {
   final String title2;
   final String title3;
   final String title4;
-  final String title5;
-  final String title6;
   final double amount;
   final DateTime date;
 
@@ -15,8 +13,6 @@ class Transactions {
     required this.title2,
     required this.title3,
     required this.title4,
-    required this.title5,
-    required this.title6,
     required this.amount,
     required this.date,
   });
