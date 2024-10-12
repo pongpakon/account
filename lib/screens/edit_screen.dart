@@ -109,8 +109,6 @@ class _EditScreenState extends State<EditScreen> {
                             title2: time.text,
                             title3: importantwork.text,
                             title4: heritage.text,
-                            amount: double.parse(rating.text),
-                            date: DateTime.now());
 
                         // add transaction data object to provider
                         var provider = Provider.of<TransactionProvider>(context,
