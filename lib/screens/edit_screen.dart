@@ -81,23 +81,6 @@ class _EditScreenState extends State<EditScreen> {
                     }
                   },
                 ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Rating',
-                  ),
-                  keyboardType: TextInputType.number,
-                  controller: amountController,
-                  validator: (String? input) {
-                    try {
-                      double amount = double.parse(input!);
-                      if (amount < 0) {
-                        return 'กรุณากรอกข้อมูลมากกว่า 0';
-                      }
-                    } catch (e) {
-                      return 'กรุณากรอกข้อมูลเป็นตัวเลข';
-                    }
-                  },
-                ),
                 FilledButton(
                     style:
                         FilledButton.styleFrom(backgroundColor: Colors.green),
