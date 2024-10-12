@@ -28,7 +28,7 @@ class _EditScreenState extends State<EditScreen> {
     name.text = widget.statement.title1;
     time.text = widget.statement.title2;
     importantwork.text = widget.statement.title3;
-    heritage.text = widget.statement.amount.toString();
+    heritage.text = widget.statement.title4;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(51, 47, 0, 255),
