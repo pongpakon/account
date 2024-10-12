@@ -27,7 +27,7 @@ class Detail extends StatelessWidget {
             SizedBox(height: 10),
             Text('ผลงานสำคัญ: ${transaction.title3}', style: TextStyle(fontSize: 18)),
             SizedBox(height: 10),
-            Text('อิทธิผลและมรดกทางความคิด: ${transaction.amount}', style: TextStyle(fontSize: 18)),
+            Text('อิทธิผลและมรดกทางความคิด: ${transaction.title4}', style: TextStyle(fontSize: 18)),
             SizedBox(height: 10),
           ]
         ),
