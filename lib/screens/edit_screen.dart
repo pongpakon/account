@@ -59,7 +59,7 @@ class _EditScreenState extends State<EditScreen> {
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'แนวเกมส์',
+                    labelText: 'ยุคสมัย',
                   ),
                   autofocus: false,
                   controller: titleController2,
