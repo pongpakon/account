@@ -69,7 +69,7 @@ class _FormScreenState extends State<FormScreen> {
                     labelText: 'ผลงานสำคัญ',
                   ),
                   autofocus: false,
-                  controller: importantwork ,
+                  controller: importantwork,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -81,7 +81,7 @@ class _FormScreenState extends State<FormScreen> {
                     labelText: 'มรดกและอิทธิพลทางความคิด',
                   ),
                   autofocus: false,
-                  controller:  ,
+                  controller: heritage,
                   validator: (String? str) {
                     if (str!.isEmpty) {
                       return 'กรุณากรอกข้อมูล';
@@ -98,9 +98,10 @@ class _FormScreenState extends State<FormScreen> {
                               // create transaction data object
                               var statement1 = Transactions(
                                   keyID: null,
-                                  title1: gamename.text,
-                                  title2: genre.text,
-                                  title3: review.text,
+                                  title1: name.text,
+                                  title2: time.text,
+                                  title3: importantwork.text,
+                                  title4: heritage.text,
                                   amount: double.parse(rating.text),
                                   date: DateTime.now()
                                   );
