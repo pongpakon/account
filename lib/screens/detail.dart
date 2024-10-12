@@ -21,13 +21,13 @@ class Detail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('ชื่อเกมส์: ${transaction.title1}', style: TextStyle(fontSize: 20,)),
+            Text('ชื่อนักปรัชญา: ${transaction.title1}', style: TextStyle(fontSize: 20,)),
             SizedBox(height: 10),
-            Text('แนวเกมส์: ${transaction.title2}', style: TextStyle(fontSize: 18)),
+            Text('ยุคสมัย: ${transaction.title2}', style: TextStyle(fontSize: 18)),
             SizedBox(height: 10),
-            Text('Review: ${transaction.title3}', style: TextStyle(fontSize: 18)),
+            Text('ผลงานสำคัญ: ${transaction.title3}', style: TextStyle(fontSize: 18)),
             SizedBox(height: 10),
-            Text('Rating: ${transaction.amount}', style: TextStyle(fontSize: 18)),
+            Text('อิทธิผลและมรดกทางความคิด: ${transaction.amount}', style: TextStyle(fontSize: 18)),
             SizedBox(height: 10),
           ]
         ),
