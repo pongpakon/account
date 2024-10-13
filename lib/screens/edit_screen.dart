@@ -21,6 +21,8 @@ class _EditScreenState extends State<EditScreen> {
   final time = TextEditingController();
   final importantwork = TextEditingController();
   final heritage = TextEditingController();
+  File? _image;
+  final picker = ImagePicker();
  
 
   @override
