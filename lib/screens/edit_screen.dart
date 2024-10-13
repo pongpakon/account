@@ -31,7 +31,7 @@ class _EditScreenState extends State<EditScreen> {
     heritage.text = widget.statement.title4;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(51, 47, 0, 255),
+          backgroundColor: const Color.fromARGB(180, 143, 50, 29),
           centerTitle: true,
           title: const Text(
             'แก้ไขข้อมูล',
