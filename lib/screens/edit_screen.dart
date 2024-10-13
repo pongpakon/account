@@ -93,6 +93,16 @@ class _EditScreenState extends State<EditScreen> {
                     }
                   },
                 ),
+                 SizedBox(height: 10),
+                 _image == null
+                 ? Text('ยังไม่ได้เลือกภาพ')
+                 : Image.file(_image!),
+                 ElevatedButton(
+                 onPressed: _pickImage,
+                 child: Text('เปลี่ยนภาพ'),
+                ),
+                SizedBox(height: 20),
+                
                 FilledButton(
                     style:
                         FilledButton.styleFrom(backgroundColor: Colors.green),
