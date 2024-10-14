@@ -4,8 +4,7 @@ import 'package:account/provider/transaction_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
+
 
 class EditScreen extends StatefulWidget {
   Transactions statement;
@@ -23,17 +22,7 @@ class _EditScreenState extends State<EditScreen> {
   final time = TextEditingController();
   final importantwork = TextEditingController();
   final heritage = TextEditingController();
-  File? _image;
-  final picker = ImagePicker();
-
-  Future<void> _pickImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery); // เปลี่ยนแหล่งภาพได้
-    if (pickedFile != null) {
-      setState(() {
-        _image = File(pickedFile.path); // ตั้งค่าภาพที่เลือก
-      });
-    }
-  }
+  
  
 
   @override
@@ -106,19 +95,10 @@ class _EditScreenState extends State<EditScreen> {
                     }
                   },
                 ),
-                 SizedBox(height: 10),
-                 _image == null
-                 ? Text('ยังไม่ได้เลือกภาพ')
-                 : Image.file(_image!),
-                 ElevatedButton(
-                 onPressed: _pickImage,
-                 child: Text('เปลี่ยนภาพ'),
-                ),
-                SizedBox(height: 20),
                 
                 FilledButton(
                     style:
-                        FilledButton.styleFrom(backgroundColor: Colors.green),
+                        FilledButton.styleFrom(backgroundColor: Colors.blue),
                     child: const Text(
                       'แก้ไขข้อมูล',
                       style: TextStyle(fontSize: 20),
