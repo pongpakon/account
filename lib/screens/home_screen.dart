@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           '${provider.transactions[index].title2} | ${provider.transactions[index].title3} |  ${provider.transactions[index].title3} | ${provider.transactions[index].title4} '),
                       leading: CircleAvatar(
                           radius: 40,
-                          backgroundColor: Colors.grey,  
+                          backgroundColor: const Color.fromARGB(255, 212, 12, 12),  
                           child: FittedBox(  
                             child: Icon(Icons.person, color: Colors.white), 
                           ),
