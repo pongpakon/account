@@ -25,7 +25,7 @@ class _FormScreenState extends State<FormScreen> {
   
     return Scaffold(
         appBar: AppBar(
-        backgroundColor: const Color.fromARGB(51, 47, 0, 255),
+        backgroundColor: Colors.blue,
         centerTitle: true,
           title: const Text(
             'เพิ่มข้อมูล',
