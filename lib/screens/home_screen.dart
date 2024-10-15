@@ -56,12 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: Text(statement.title1),
                       subtitle: Text(
                           '${provider.transactions[index].title2} | ${provider.transactions[index].title3} |  ${provider.transactions[index].title3} | ${provider.transactions[index].title4} '),
-                      leading: const CircleAvatar(
-                        radius: 40,
-                        child: FittedBox(
-                          child: Icon(Icons.gamepad),
+                      leading: CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey,  
+                          child: FittedBox(  
+                            child: Icon(Icons.person, color: Colors.white), 
+                          ),
                         ),
-                      ),
+
                       onTap: () {
                         Navigator.push(
                           context,
