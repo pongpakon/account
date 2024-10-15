@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:account/provider/transaction_provider.dart';
 
 class FormScreen extends StatefulWidget {
-
-
   const FormScreen({super.key});
 
   @override
@@ -17,16 +15,15 @@ class _FormScreenState extends State<FormScreen> {
   final formKey = GlobalKey<FormState>();
   final name = TextEditingController();
   final time = TextEditingController();
-  final importantwork  = TextEditingController();
+  final importantwork = TextEditingController();
   final heritage = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
         appBar: AppBar(
-        backgroundColor: Colors.blue,
-        centerTitle: true,
+          backgroundColor: Colors.blue,
+          centerTitle: true,
           title: const Text(
             'เพิ่มข้อมูล',
             style: TextStyle(
@@ -40,7 +37,6 @@ class _FormScreenState extends State<FormScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  
                   decoration: const InputDecoration(
                     labelText: 'ชื่อนักปรัชญา',
                   ),
@@ -89,38 +85,37 @@ class _FormScreenState extends State<FormScreen> {
                   },
                 ),
                 FilledButton(
-                  style:
-                        FilledButton.styleFrom(backgroundColor: blue),
-                    child: const Text('SAVE',style: TextStyle(fontSize: 20),),
+                    style: FilledButton.styleFrom(backgroundColor: Colors.blue),
+                    child: const Text(
+                      'SAVE',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     onPressed: () {
-                          if (formKey.currentState!.validate())
-                            {
-                              // create transaction data object
-                              var statement1 = Transactions(
-                                  keyID: null,
-                                  title1: name.text,
-                                  title2: time.text,
-                                  title3: importantwork.text,
-                                  title4: heritage.text,
-                                  amount: double.parse(amountController.text),
-                                  date: DateTime.now()
-                                  );
-                              
-                            
-                              // add transaction data object to provider
-                              var provider = Provider.of<TransactionProvider>(context, listen: false);
-                              
-                              provider.addTransaction(statement1);
-                             
+                      if (formKey.currentState!.validate()) {
+                        // create transaction data object
+                        var statement1 = Transactions(
+                            keyID: null,
+                            title1: name.text,
+                            title2: time.text,
+                            title3: importantwork.text,
+                            title4: heritage.text,
+                            date: DateTime.now());
 
-                              Navigator.push(context, MaterialPageRoute(
+                        // add transaction data object to provider
+                        var provider = Provider.of<TransactionProvider>(context,
+                            listen: false);
+
+                        provider.addTransaction(statement1);
+
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
                                 fullscreenDialog: true,
-                                builder: (context){
+                                builder: (context) {
                                   return MyHomePage();
-                                }
-                              ));
-                            }
-                        })
+                                }));
+                      }
+                    })
               ],
             )));
   }
